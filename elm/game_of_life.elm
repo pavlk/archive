@@ -2,9 +2,7 @@
 
 -- Note: Be careful when setting n > 10. 
 -- It is very slow and may freeze your browser.
-
--- TODO: optimize for speed
-
+ 
 -- Utils
 safe_plus n (a,b) (x,y) = (mod (a+x) n, mod (b+y) n)
 has l x = any (\y -> y==x) l
@@ -34,3 +32,8 @@ pentomino = blinker ++ [(0,8), (1,6)]
 -- Run
 init_board = pentomino --cross ++ blinker ++ glider
 main = display <~ (foldp step init_board $ every (second/2))
+
+-- TODO: 
+--  - optimize for speed
+--  - better display function
+--  - new rules and patterns, make patterns composable from the UI
